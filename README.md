@@ -41,3 +41,4 @@ El API REST debe permitir:
        .build();
   }
  
+ Asimismo, faltaría la documentación generada con OpenAPI y por supuesto los test, pero debido a que tengo una lesión temporal en el ojo derecho y sólo tengo operativo el izquierdo, lo he hecho hasta que mi vista ha dicho basta. Por supuesto, cualquier cosa os la puedo explicar en vivo y en directo, aunque no me haya dado tiempo a codificarla. 
