@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.acciona.challenge.common.StatusProcessor;
+import com.acciona.challenge.logging.PersistingErrorHandler;
+import com.acciona.challenge.logging.PersistingSuccessHandler;
 import com.acciona.challenge.model.Tweet;
 import com.acciona.challenge.repository.TweetRepository;
 
@@ -40,8 +42,10 @@ public class TweetPersistService implements StatusProcessor {
         .filter(status -> checkParameters(status))
         .map(status -> {return this.toTweetEntity(status);})
         .map(tweetRepository::save)
-        .subscribe();
-  }
+        .subscribe(
+                new PersistingSuccessHandler<>(Tweet.class),
+                new PersistingErrorHandler<>(Tweet.class));
+      }
 
   private boolean checkParameters(Status status) {
 	  if(status.getUser().getFollowersCount() > followersMin &&

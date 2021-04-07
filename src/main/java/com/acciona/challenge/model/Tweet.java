@@ -5,11 +5,15 @@ import org.springframework.data.relational.core.mapping.Column;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 public class Tweet {
 
   public static final String USERNAME = "username";
